@@ -54,6 +54,8 @@ export default function Navbar() {
     }
   }
 
+  const REGISTER_FORM_URL = 'https://forms.gle/ACN75DHLQ2AEiSoZ9'
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8 pt-5 transition-all duration-300">
       {/* Floating Ash-Tinted Glassmorphic Container */}
@@ -123,16 +125,10 @@ export default function Navbar() {
         {/* Desktop REGISTER CTA Button */}
         <div className="hidden md:flex items-center">
           <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              handleNavClick('CONTACT', '#contact')
-            }}
-            className={`group relative inline-flex items-center space-x-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer ${
-              activeTab === 'CONTACT'
-                ? 'bg-red-600 text-white shadow-lg shadow-red-600/40 scale-105'
-                : 'bg-zinc-200/90 hover:bg-white text-zinc-950 shadow-md shadow-black/40 hover:shadow-zinc-300/20'
-            }`}
+            href={REGISTER_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center space-x-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer bg-zinc-200/90 hover:bg-white text-zinc-950 shadow-md shadow-black/40 hover:shadow-zinc-300/20"
           >
             <span>REGISTER</span>
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -180,11 +176,10 @@ export default function Navbar() {
 
           <div className="pt-2 border-t border-zinc-700/40">
             <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault()
-                handleNavClick('CONTACT', '#contact')
-              }}
+              href={REGISTER_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl text-xs font-bold tracking-wider text-white bg-red-600 hover:bg-red-500 transition-colors shadow-lg"
             >
               <span>REGISTER</span>

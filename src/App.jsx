@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import { ArrowRight, Swords, Calendar, MapPin, Clock } from 'lucide-react'
 
 export default function App() {
+  const REGISTER_FORM_URL = 'https://forms.gle/ACN75DHLQ2AEiSoZ9'
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-white font-sans selection:bg-red-600 selection:text-white">
       {/* Background Video (High-Contrast Black & White Industrial/Robotics Atmosphere) */}
@@ -49,11 +51,13 @@ export default function App() {
               <span className="text-white font-semibold">TITAN 2026</span> is an exciting robot combat competition where innovation, engineering, and creativity collide. Talented competitors design, build, and battle powerful robots in an action-packed arena, showcasing their technical skills and strategies. Get ready for intense battles, thrilling moments, and ultimate victory.
             </p>
 
-            {/* Single CTA Action Button: REGISTER ONLY */}
+            {/* Single CTA Action Button: Opens Google Registration Form */}
             <div className="pt-2">
               <a
-                href="#contact"
-                className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transition-all shadow-xl shadow-red-900/40 hover:shadow-red-600/60 transform hover:-translate-y-0.5"
+                href={REGISTER_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transition-all shadow-xl shadow-red-900/40 hover:shadow-red-600/60 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <Swords className="w-4 h-4" />
                 <span>REGISTER YOUR BOT</span>

@@ -1,12 +1,10 @@
 import React from 'react'
-import { Trophy, Sparkles, CheckCircle2 } from 'lucide-react'
+import { Trophy, CheckCircle2 } from 'lucide-react'
 
 export default function PrizePoolSection() {
   const prizes = [
     {
       place: '2ND',
-      medalLabel: 'SILVER MEDAL',
-      title: '1ST RUNNER-UP',
       amount: '150,000',
       currency: 'LKR',
       orderClass: 'order-2 lg:order-1',
@@ -15,14 +13,11 @@ export default function PrizePoolSection() {
       borderColor: 'border-slate-300/60 hover:border-white',
       shadowStyle: '0 0 40px -8px rgba(226, 232, 240, 0.28), 0 20px 40px -15px rgba(0,0,0,0.8), inset 0 1px 2px rgba(255, 255, 255, 0.5)',
       topFlare: 'bg-gradient-to-r from-slate-400 via-white to-slate-400',
-      badgeStyle: 'bg-slate-300/20 text-slate-100 border-slate-300/50 shadow-[0_0_12px_rgba(226,232,240,0.3)]',
       trophyStyle: 'bg-slate-300/20 border border-slate-300/50 text-slate-100 shadow-[0_0_20px_rgba(226,232,240,0.35)]',
       rankText: 'text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-zinc-300',
       amountText: 'text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-zinc-300',
       currencyText: 'text-slate-300',
       iconColor: 'text-slate-200',
-      subTextColor: 'text-slate-300',
-      rankTag: '#02 SILVER',
       perks: [
         'Silver Runner-Up Trophy & Silver Medals',
         'Official SLIIT Certificate of Engineering Merit',
@@ -31,8 +26,6 @@ export default function PrizePoolSection() {
     },
     {
       place: '1ST',
-      medalLabel: 'GOLD MEDAL',
-      title: 'GRAND CHAMPION',
       amount: '250,000',
       currency: 'LKR',
       orderClass: 'order-1 lg:order-2',
@@ -41,15 +34,12 @@ export default function PrizePoolSection() {
       borderColor: 'border-amber-400/80 hover:border-yellow-300',
       shadowStyle: '0 0 50px -5px rgba(245, 158, 11, 0.4), 0 25px 60px -15px rgba(0,0,0,0.9), inset 0 1px 2px rgba(254, 240, 138, 0.6)',
       topFlare: 'bg-gradient-to-r from-amber-500 via-yellow-200 to-amber-500 shadow-[0_0_15px_#f59e0b]',
-      badgeStyle: 'bg-amber-500/25 text-amber-300 border-amber-400/60 shadow-[0_0_15px_rgba(245,158,11,0.4)]',
       trophyStyle: 'bg-amber-500/25 border border-amber-400/60 text-amber-300 shadow-[0_0_25px_rgba(245,158,11,0.5)]',
       rankText: 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-400 to-yellow-500',
       amountText: 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-300 to-yellow-400',
       currencyText: 'text-amber-400',
       iconColor: 'text-amber-400',
-      subTextColor: 'text-amber-300',
       isChampion: true,
-      rankTag: '#01 GOLD',
       perks: [
         'SLIIT Titan Grand Champion Trophy',
         'Gold Medals for all Team Engineers',
@@ -59,8 +49,6 @@ export default function PrizePoolSection() {
     },
     {
       place: '3RD',
-      medalLabel: 'BRONZE MEDAL',
-      title: '2ND RUNNER-UP',
       amount: '100,000',
       currency: 'LKR',
       orderClass: 'order-3 lg:order-3',
@@ -69,14 +57,11 @@ export default function PrizePoolSection() {
       borderColor: 'border-orange-500/60 hover:border-orange-400',
       shadowStyle: '0 0 40px -8px rgba(234, 88, 12, 0.28), 0 20px 40px -15px rgba(0,0,0,0.8), inset 0 1px 2px rgba(251, 146, 60, 0.45)',
       topFlare: 'bg-gradient-to-r from-amber-700 via-orange-400 to-amber-700',
-      badgeStyle: 'bg-orange-500/20 text-orange-300 border-orange-500/50 shadow-[0_0_12px_rgba(234,88,12,0.3)]',
       trophyStyle: 'bg-orange-500/20 border border-orange-500/50 text-orange-300 shadow-[0_0_20px_rgba(234,88,12,0.35)]',
       rankText: 'text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-500 to-orange-400',
       amountText: 'text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-400 to-orange-400',
       currencyText: 'text-orange-400',
       iconColor: 'text-orange-400',
-      subTextColor: 'text-orange-300',
-      rankTag: '#03 BRONZE',
       perks: [
         'Bronze Trophy & Bronze Medals',
         'Official SLIIT Certificate of Recognition',
@@ -133,40 +118,29 @@ export default function PrizePoolSection() {
             >
               {/* Podium Card */}
               <div
-                className={`p-7 sm:p-8 rounded-3xl ${prize.cardBg} border ${prize.borderColor} backdrop-blur-2xl relative overflow-hidden flex flex-col justify-between min-h-[480px] transition-all duration-300`}
+                className={`p-7 sm:p-8 rounded-3xl ${prize.cardBg} border ${prize.borderColor} backdrop-blur-2xl relative overflow-hidden flex flex-col justify-between transition-all duration-300`}
                 style={{
                   boxShadow: prize.shadowStyle
                 }}
               >
-                {/* Top Metallic Flare Line */}
-                <div className={`absolute top-0 right-0 left-0 h-1.5 ${prize.topFlare}`} />
+                {/* Top Subtle Flare Line */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${prize.topFlare}`} />
 
-                {/* Card Top */}
                 <div>
-                  {/* Badge & Trophy Icon */}
+                  {/* Top Row: Rank Display + Trophy Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="flex flex-col space-y-1">
-                      <span className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest border ${prize.badgeStyle}`}>
-                        {prize.medalLabel}
+                    <div className="flex items-baseline space-x-2">
+                      <span className={`text-4xl sm:text-5xl font-black tracking-tight ${prize.rankText}`}>
+                        {prize.place}
                       </span>
-                      <span className="text-xs font-mono font-semibold text-zinc-400 tracking-wider pl-1">
-                        {prize.title}
+                      <span className="text-xs font-mono tracking-widest text-zinc-400 uppercase">
+                        PLACE
                       </span>
                     </div>
-
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${prize.trophyStyle} transition-transform group-hover:scale-110`}>
-                      <Trophy className="w-6 h-6" />
+                    
+                    <div className={`w-11 h-11 rounded-2xl flex items-center justify-center ${prize.trophyStyle}`}>
+                      <Trophy className="w-5 h-5" />
                     </div>
-                  </div>
-
-                  {/* Rank Display (Gold / Silver / Bronze Gradient) */}
-                  <div className="flex items-baseline space-x-2 mb-2 font-mono">
-                    <span className={`text-4xl sm:text-5xl font-black ${prize.rankText} tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]`}>
-                      {prize.place}
-                    </span>
-                    <span className="text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                      PLACE
-                    </span>
                   </div>
 
                   {/* Cash Amount with Specific Metallic Gradient */}
@@ -196,17 +170,6 @@ export default function PrizePoolSection() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                {/* Card Bottom / Rank Tag */}
-                <div className="pt-6 mt-6 border-t border-zinc-800/80 flex items-center justify-between text-[11px] font-mono">
-                  <div className="flex items-center space-x-1.5 text-zinc-400">
-                    <Sparkles className={`w-3.5 h-3.5 ${prize.iconColor}`} />
-                    <span>SLIIT VERIFIED</span>
-                  </div>
-                  <span className={`font-bold tracking-wider ${prize.subTextColor}`}>
-                    {prize.rankTag}
-                  </span>
                 </div>
 
               </div>

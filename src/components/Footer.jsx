@@ -1,82 +1,175 @@
 import React from 'react'
-import { Shield, Sparkles, MapPin } from 'lucide-react'
 
 export default function Footer() {
+  const scrollTo = (href) => {
+    const el = document.querySelector(href)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <footer className="border-t border-zinc-800/80 bg-black/80 backdrop-blur-2xl relative z-10 pt-16 pb-12">
+    <footer className="relative border-t border-zinc-700/40 bg-gradient-to-b from-[#101217]/90 via-[#0a0b0e] to-black backdrop-blur-2xl z-10 pt-16 pb-10 overflow-hidden">
+      
+      {/* Top Red Ambient Accent Line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-transparent pointer-events-none" />
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-red-600/10 rounded-full blur-[100px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        {/* Main Footer Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
           
-          {/* Brand */}
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-zinc-800/80 border border-zinc-600/40 flex items-center justify-center p-1.5 shadow-md">
+          {/* Column 1: Brand & Tournament Info (span 5) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="flex items-center space-x-3.5">
+              <div className="w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-500/30 flex items-center justify-center p-2 shadow-lg shadow-black/50 backdrop-blur-md">
                 <img
                   src="/titan-logo.png"
                   alt="TITAN Logo"
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]"
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]"
                 />
               </div>
               <div>
-                <span className="font-extrabold tracking-widest text-white text-lg block">
+                <span className="font-black tracking-widest text-white text-xl block leading-tight">
                   TITAN &bull; BOT BATTLE
-                </span>
-                <span className="text-[10px] font-mono tracking-widest text-red-400 uppercase -mt-0.5 block">
-                  SLIIT&apos;S INAUGURAL COMBAT ARENA
                 </span>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-sm leading-relaxed">
-              Sri Lanka&apos;s first-ever premier collegiate combat robotics tournament. Designed, hosted, and engineered at the Sri Lanka Institute of Information Technology (SLIIT).
+            <p className="text-xs sm:text-sm text-zinc-300 max-w-md leading-relaxed">
+              Sri Lanka&apos;s landmark collegiate combat robotics championship. Undergraduate innovators and custom-built machines clash for ultimate engineering glory.
+            </p>
+          </div>
+
+          {/* Column 2: Navigation Links (span 3) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-300 pb-1 border-b border-zinc-800/80">
+              ARENA NAVIGATION
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400 font-mono">
+              <li>
+                <a
+                  href="#home"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollTo('#home')
+                  }}
+                  className="hover:text-white hover:translate-x-1 inline-flex items-center space-x-1.5 transition-all duration-200"
+                >
+                  <span className="text-red-500">&gt;</span>
+                  <span>Home Arena</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollTo('#about')
+                  }}
+                  className="hover:text-white hover:translate-x-1 inline-flex items-center space-x-1.5 transition-all duration-200"
+                >
+                  <span className="text-red-500">&gt;</span>
+                  <span>About Tournament</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#rules"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollTo('#rules')
+                  }}
+                  className="hover:text-red-400 hover:translate-x-1 inline-flex items-center space-x-1.5 transition-all duration-200 text-red-400/90"
+                >
+                  <span className="text-red-500">&gt;</span>
+                  <span>Rules &amp; Conditions</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollTo('#contact')
+                  }}
+                  className="hover:text-white hover:translate-x-1 inline-flex items-center space-x-1.5 transition-all duration-200"
+                >
+                  <span className="text-red-500">&gt;</span>
+                  <span>Contact &amp; Support</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Social Media Channels (Clean & Borderless) (span 4) */}
+          <div className="lg:col-span-4 space-y-4">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-300 pb-1 border-b border-zinc-800/80 flex items-center justify-between">
+              <span>OFFICIAL CHANNELS</span>
+              <span className="text-red-500 font-bold">SOCIALS</span>
+            </h4>
+
+            <p className="text-xs text-zinc-300 leading-relaxed">
+              Connect with our official community for fight announcements, pit updates, and live bot action.
             </p>
 
-            <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-              <span>LIVE COMBAT SYSTEM &bull; SEASON 01 &bull; 2026</span>
+            {/* Social Media Buttons (Facebook, TikTok, Instagram) */}
+            <div className="grid grid-cols-3 gap-3 pt-1">
+              {/* Facebook */}
+              <a
+                href="https://web.facebook.com/SLIIT.SIS/?ref=NONE_xav_ig_profile_page_web#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex flex-col items-center justify-center p-3 rounded-xl bg-zinc-800/40 hover:bg-[#1877F2]/20 text-zinc-300 hover:text-[#1877F2] transition-all duration-300 group shadow-md hover:-translate-y-0.5 cursor-pointer"
+              >
+                <svg className="w-5 h-5 mb-1.5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                <span className="text-[11px] font-mono font-semibold tracking-wider">Facebook</span>
+              </a>
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="flex flex-col items-center justify-center p-3 rounded-xl bg-zinc-800/40 hover:bg-zinc-700/50 text-zinc-300 hover:text-white transition-all duration-300 group shadow-md hover:-translate-y-0.5 cursor-pointer"
+              >
+                <svg className="w-5 h-5 mb-1.5 fill-current transition-transform group-hover:scale-110 group-hover:text-pink-500" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.02 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                </svg>
+                <span className="text-[11px] font-mono font-semibold tracking-wider">TikTok</span>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/sis.sliit/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex flex-col items-center justify-center p-3 rounded-xl bg-zinc-800/40 hover:bg-pink-600/20 text-zinc-300 hover:text-pink-400 transition-all duration-300 group shadow-md hover:-translate-y-0.5 cursor-pointer"
+              >
+                <svg className="w-5 h-5 mb-1.5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+                <span className="text-[11px] font-mono font-semibold tracking-wider">Instagram</span>
+              </a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-300 font-mono mb-4">
-              Arena Navigation
-            </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-zinc-400 font-mono">
-              <li><a href="#home" className="hover:text-white transition-colors">&gt; Home Arena</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">&gt; About SLIIT Battle</a></li>
-              <li><a href="#rules" className="hover:text-red-400 text-red-400/90 transition-colors">&gt; Rules &amp; Conditions</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">&gt; Contact &amp; Support</a></li>
-            </ul>
-          </div>
-
-          {/* Event Details */}
-          <div>
-            <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-300 font-mono mb-4">
-              Venue &amp; Dates
-            </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
-              <li className="text-white font-semibold">SLIIT Malabe Campus</li>
-              <li>SLIIT Quadrangle</li>
-              <li>New Kandy Road, Malabe</li>
-              <li className="pt-2 text-red-400 font-mono font-bold">2027 FEB 12 &bull; 9:00 AM</li>
-            </ul>
           </div>
 
         </div>
 
-        {/* Bottom copyright */}
-        <div className="pt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
-          <p>&copy; 2026 TITAN Bot Battle &bull; Sri Lanka Institute of Information Technology (SLIIT). All Rights Reserved.</p>
-          <div className="flex items-center space-x-2 text-zinc-400 font-mono text-[11px]">
-            <span>POWERED BY</span>
-            <span className="text-white font-bold">SLIIT ROBOTICS</span>
-          </div>
+        {/* Bottom Bar: Centered Copyright */}
+        <div className="pt-8 border-t border-zinc-800/90 flex items-center justify-center text-xs text-zinc-400">
+          <p className="font-mono text-center">
+            &copy; 2026 <span className="text-white font-bold">Digexa</span>. All rights reserved.
+          </p>
         </div>
 
       </div>
     </footer>
   )
 }
-
